@@ -1,2 +1,26 @@
 # API Checker
-API が正常に動いているかをチェック
+API が正常に動いているかをチェックします。
+
+## ビルド方法
+**Linux 向け**
+```
+GOOS=linux GOARCH=amd64 go build -o build/apichecker
+```
+**Mac 向け**
+```
+GOOS=darwin GOARCH=amd64 go build -o build/apichecker
+```
+**Windows 向け**
+```
+GOOS=windows GOARCH=amd64 go build -o build/apichecker
+```
+
+## 実行方法
+**開発環境**
+```
+go run apichecker.go -endpoint=${エンドポイントURI} -token=${Line Notify 用 Token}
+```
+**ビルドしたバイナリの実行**
+```
+apichecker -endpoint=${エンドポイントURI} -token=${Line Notify 用 Token}
+```
