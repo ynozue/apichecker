@@ -40,7 +40,7 @@ func getAPI(endpoint string) string {
 			expireJSTTime := expireUTCTime.In(time.FixedZone("Asia/Tokyo", 9 * 60 * 60))
 			expire = expireJSTTime.Format("06/01/02 15:04")
 		}
-		result = fmt.Sprintf("OK[expire=%s]\n%s", expire, endpoint)
+		result = fmt.Sprintf("OK (expire=%s)\n%s", expire, endpoint)
 	}
 
 	return result
