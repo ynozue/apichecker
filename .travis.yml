@@ -5,6 +5,6 @@ before_install:
   - go get github.com/golang/lint/golint
 
 script:
-  - go vet ./...
-  - golint ./...
-  - goimports ./...
+  - go vet .
+  - golint .
+  - goimports .
