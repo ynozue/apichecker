@@ -1,13 +1,13 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
 	"flag"
+	"fmt"
+	"io/ioutil"
 	"log"
+	"net/http"
 	"net/url"
 	"strings"
-	"io/ioutil"
 	"time"
 )
 
@@ -37,7 +37,7 @@ func getAPI(endpoint string) string {
 		expire := "-"
 		if len(resp.TLS.PeerCertificates) > 0 {
 			expireUTCTime := resp.TLS.PeerCertificates[0].NotAfter
-			expireJSTTime := expireUTCTime.In(time.FixedZone("Asia/Tokyo", 9 * 60 * 60))
+			expireJSTTime := expireUTCTime.In(time.FixedZone("Asia/Tokyo", 9*60*60))
 			expire = expireJSTTime.Format("06/01/02 15:04")
 		}
 		result = fmt.Sprintf("OK (expire=%s)\n%s", expire, endpoint)
