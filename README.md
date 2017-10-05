@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ynozue/apichecker.svg?branch=master)](https://travis-ci.org/ynozue/apichecker)
+
 # API Checker
 API が正常に動いているかをチェックします。
 
