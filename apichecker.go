@@ -24,7 +24,7 @@ func main() {
 
 func getAPI(endpoint string) string {
 	if endpoint == "" {
-		log.Fatal("not endpoint")
+		log.Println("not endpoint")
 		return "not endpoint"
 	}
 
@@ -48,10 +48,10 @@ func getAPI(endpoint string) string {
 
 func postLINE(token string, message string) bool {
 	if token == "" {
-		log.Fatal("not token")
+		log.Println("not token")
 		return false
 	} else if message == "" {
-		log.Fatal("not text")
+		log.Println("not text")
 		return false
 	}
 
@@ -61,13 +61,13 @@ func postLINE(token string, message string) bool {
 	r.Header.Set("Authorization", fmt.Sprintf("Bearer %s", token))
 	resp, err := http.DefaultClient.Do(r)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return false
 	}
 	defer resp.Body.Close()
 	_, err = ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return false
 	}
 
