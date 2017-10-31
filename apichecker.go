@@ -11,15 +11,25 @@ import (
 	"time"
 )
 
+var version = "unknown"
+var revision = "unknown"
+
 func main() {
 	var endpoint = flag.String("endpoint", "", "check target Endpoint URL")
 	var lineToken = flag.String("token", "", "LINE notify token")
+	var showVersion = false
+	flag.BoolVar(&showVersion, "v", false, "show application version")
+	flag.BoolVar(&showVersion, "version", false, "show application version")
 	flag.Parse()
 
-	var apiResult = getAPI(*endpoint)
-	var result = postLINE(*lineToken, apiResult)
+	if showVersion {
+		fmt.Println("version(", version+"."+revision, ")")
+	} else {
+		var apiResult = getAPI(*endpoint)
+		var result = postLINE(*lineToken, apiResult)
 
-	fmt.Printf("LINE Post result [%t]\n", result)
+		fmt.Printf("LINE Post result [%t]\n", result)
+	}
 }
 
 func getAPI(endpoint string) string {
