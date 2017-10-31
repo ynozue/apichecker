@@ -4,6 +4,11 @@
 API が正常に動いているかをチェックします。
 
 ## ビルド方法
+```
+make build
+```
+
+## コマンドでのビルド方法
 **Linux 向け**
 ```
 GOOS=linux GOARCH=amd64 go build -o build/apichecker
