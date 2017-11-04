@@ -24,7 +24,7 @@ test:lint vet imports
 
 .PHONY: build
 build: test
-	GOOS=darwin GOARCH=amd64 go build -ldflags "$(LDFLAGS)" -o build/$(NAME)
+	GOOS=linux GOARCH=amd64 go build -ldflags "$(LDFLAGS)" -o build/$(NAME)
 
 .PHONY: clean
 clean:
