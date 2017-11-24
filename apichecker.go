@@ -12,7 +12,6 @@ import (
 )
 
 var version = "unknown"
-var revision = "unknown"
 
 func main() {
 	var endpoint = flag.String("endpoint", "", "check target Endpoint URL")
@@ -23,7 +22,7 @@ func main() {
 	flag.Parse()
 
 	if showVersion {
-		fmt.Println("version(", version+"."+revision, ")")
+		fmt.Println("version(", version, ")")
 	} else {
 		var apiResult = getAPI(*endpoint)
 		var result = postLINE(*lineToken, apiResult)
